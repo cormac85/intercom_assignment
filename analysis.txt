@@ -1,0 +1,27 @@
+Problem
+
+We have some customer records in a text file (customers.txt) -- one customer per line, JSON lines formatted. We want to invite any customer within 100km of our Dublin office for some food and drinks on us. Write a program that will read the full list of customers and output the names and user ids of matching customers (within 100km), sorted by User ID (ascending).
+
+You can use the first formula from this Wikipedia article to calculate distance. Don't forget, you'll need to convert degrees to radians.
+The GPS coordinates for our Dublin office are 53.339428, -6.257664.
+You can find the Customer list here.
+We're looking for you to produce working code, with enough room to demonstrate how to structure components in a small program.
+
+
+- Poor answers will be in the form of one big function. It’s impossible to test anything smaller than the entire operation of the program, including reading from the input file. Errors are caught and ignored.
+
+- Good answers are well composed. Calculating distances and reading from a file are separate concerns. Classes or functions have clearly defined responsibilities. Test cases cover likely problems with input data.
+
+- It’s an excellent answer if we've learned something from reading the code.
+
+Example data:
+{"latitude": "52.986375", "user_id": 12, "name": "Christina McArdle", "longitude": "-6.043701"}
+
+
+Steps Required:
+1. Import data into data frame using suitable package
+2. Calculate new column in data frame which contains distance to point.
+3. Filter & Sort
+4. Export ID's and Names
+
+Proposed Solution
