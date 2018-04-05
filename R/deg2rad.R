@@ -9,5 +9,5 @@
 #' deg2rad(45)
 #'
 deg2rad <- function(deg){
-  return(deg*pi/180)
+  deg * pi / 180
 }
