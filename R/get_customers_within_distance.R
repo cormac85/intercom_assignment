@@ -8,6 +8,7 @@
 #' customers that are within 100 km of the Indeed Dublin Campus, sorted
 #' by \code{user_id}
 #' @export
+#' @importFrom magrittr "%>%"
 #'
 #' @examples
 #' get_customers_within_distance("./path_to_customers.json", cutoff_distance,
@@ -29,7 +30,7 @@ get_customers_within_distance <- function(customers_path, cutoff_distance,
                   deg2rad(customers$lat_2))
 
   customers %>%
-    filter(distance_to_hq < cutoff_distance) %>%
-    arrange(user_id) %>%
-    select(name, user_id)
+    dplyr::filter(distance_to_hq < cutoff_distance) %>%
+    dplyr::arrange(user_id) %>%
+    dplyr::select(name, user_id)
 }
