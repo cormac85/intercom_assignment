@@ -12,7 +12,7 @@
 #' calculate_gcd <- function(deg2rad(-6), deg2rad(55),
 #'                           deg2rad(-7), deg2rad(56))
 calculate_gcd <- function(long_1, lat_1, long_2, lat_2){
-
+# TODO Should this error when outside the bounds of 0-360 for long and 0-180 for lat?
   earth_radius <- 6371 # mean earth radius in km
   arc_length <-
     acos(

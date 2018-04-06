@@ -26,3 +26,31 @@ test_that("GCD calc is correct when given identical coordinates",{
   actual_distance <- calculate_gcd(long_1, lat_1, long_2, lat_2)
   expect_equal(actual_distance, 0)
 })
+
+test_that("GCD calc fails appropriately with garbage data",{
+  long_1 <- deg2rad(indeed_hq_coordinates$longitude)
+  lat_1 <- "a"
+  long_2 <- deg2rad(indeed_hq_coordinates$longitude)
+  lat_2 <- "b"
+
+  expect_error(calculate_gcd(long_1, lat_1, long_2, lat_2))
+})
+
+test_that("GCD calc gives 0 distance with at 0 edge case",{
+  long_1 <- 0
+  lat_1 <- 0
+  long_2 <- 0
+  lat_2 <- 0
+
+  expect_equal(calculate_gcd(long_1, lat_1, long_2, lat_2), 0)
+})
+
+test_that("GCD calc works for large angles",{
+  long_1 <- deg2rad(721)
+  lat_1 <- deg2rad(361)
+  long_2 <- deg2rad(722)
+  lat_2 <- deg2rad(362)
+
+  expect_equal(calculate_gcd(long_1, lat_1, long_2, lat_2), 157,
+               tolerance = 1)
+})
