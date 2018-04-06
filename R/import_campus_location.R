@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' get_campus_location("Intercom Dublin HQ", "./path_to_campus_file.csv")
-get_campus_location <- function(campus_name, campus_file_path){
+import_campus_location <- function(campus_name, campus_file_path){
 
   tryCatch({
   campus_location <-

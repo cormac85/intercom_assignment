@@ -21,7 +21,7 @@ get_customers_within_distance <- function(customers_path,
 
   customers <- import_customer_list(customers_path)
   campus_location <-
-    get_campus_location(intercom_location_name, intercom_locations_path)
+    import_campus_location(intercom_location_name, intercom_locations_path)
   customers$long_2 = campus_location$longitude
   customers$lat_2 = campus_location$latitude
 

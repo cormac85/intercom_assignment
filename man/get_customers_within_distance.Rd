@@ -5,7 +5,7 @@
 \title{Get Sorted List of Customers Within Distance to Campus Location}
 \usage{
 get_customers_within_distance(customers_path, cutoff_distance,
-  intercom_locations_path)
+  intercom_locations_path, intercom_location_name)
 }
 \arguments{
 \item{customers_path}{Path to customer list in JSON format.}
