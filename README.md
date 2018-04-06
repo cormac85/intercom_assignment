@@ -8,6 +8,10 @@ The package is tested and documented using the testthat and roxygen2.
 Two functions are exported, `calculate_gcd()` and `get_customers_within_distance()` which will calculate a great circle distance 
 between coordinates, and gets the list of customers close to a certain point respectively.
 
+To use this function to on `customers.txt`, you will need to have this file and another 
+file which contains a list of "campus locations" from which the customer distance can
+be calculated.
+
     get_customers_within_distance("./path_to_data/customers.txt", 100, "./path_to_data/indeed_locations.csv", "Indeed Dublin HQ")
     
 The file "indeed_locations.csv" should contain a .csv with 3 variables, "name", "latitude","longitude" as follows:
