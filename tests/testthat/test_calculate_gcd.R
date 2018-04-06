@@ -1,14 +1,14 @@
 context("Distance Calcs")
 
-indeed_hq_coordinates <- readRDS("./other_test_data/indeed_hq_coordinates.rds")
+intercom_hq_coordinates <- readRDS("./other_test_data/intercom_hq_coordinates.rds")
 
 test_that("GCD calc is correct to about 100m",{
   geospatial_coordinates <- readRDS("./other_test_data/customers_data_frame.rds")
 
   long_1 <- deg2rad(geospatial_coordinates$longitude[1])
   lat_1 <- deg2rad(geospatial_coordinates$latitude[1])
-  long_2 <- deg2rad(indeed_hq_coordinates$longitude)
-  lat_2 <- deg2rad(indeed_hq_coordinates$latitude)
+  long_2 <- deg2rad(intercom_hq_coordinates$longitude)
+  lat_2 <- deg2rad(intercom_hq_coordinates$latitude)
 
   actual_distance <-calculate_gcd(long_1, lat_1, long_2, lat_2)
   expect_equal(actual_distance, 41.816, tolerance = 1e-1)
@@ -18,19 +18,19 @@ test_that("GCD calc is correct to about 100m",{
 })
 
 test_that("GCD calc is correct when given identical coordinates",{
-  long_1 <- deg2rad(indeed_hq_coordinates$longitude)
-  lat_1 <- deg2rad(indeed_hq_coordinates$latitude)
-  long_2 <- deg2rad(indeed_hq_coordinates$longitude)
-  lat_2 <- deg2rad(indeed_hq_coordinates$latitude)
+  long_1 <- deg2rad(intercom_hq_coordinates$longitude)
+  lat_1 <- deg2rad(intercom_hq_coordinates$latitude)
+  long_2 <- deg2rad(intercom_hq_coordinates$longitude)
+  lat_2 <- deg2rad(intercom_hq_coordinates$latitude)
 
   actual_distance <- calculate_gcd(long_1, lat_1, long_2, lat_2)
   expect_equal(actual_distance, 0)
 })
 
 test_that("GCD calc fails appropriately with garbage data",{
-  long_1 <- deg2rad(indeed_hq_coordinates$longitude)
+  long_1 <- deg2rad(intercom_hq_coordinates$longitude)
   lat_1 <- "a"
-  long_2 <- deg2rad(indeed_hq_coordinates$longitude)
+  long_2 <- deg2rad(intercom_hq_coordinates$longitude)
   lat_2 <- "b"
 
   expect_error(calculate_gcd(long_1, lat_1, long_2, lat_2))

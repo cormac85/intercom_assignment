@@ -6,7 +6,7 @@
 #' @return A data frame with one row and values \code{latitude} and \code{longitude}.
 #'
 #' @examples
-#' get_campus_location("Indeed Dublin HQ", "./path_to_campus_file.csv")
+#' get_campus_location("Intercom Dublin HQ", "./path_to_campus_file.csv")
 get_campus_location <- function(campus_name, campus_file_path){
 
   tryCatch({

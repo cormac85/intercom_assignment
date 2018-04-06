@@ -2,10 +2,10 @@
 #'
 #' @param customers_path Path to customer list in JSON format.
 #' @param cutoff_distance Max distance in km to customers.
-#' @param indeed_locations_path Path to list of Indeed locations in .csv format
+#' @param intercom_locations_path Path to list of Intercom locations in .csv format
 #'
 #' @return A data frame with \code{name} and \code{user_id} of those
-#' customers that are within 100 km of the Indeed Dublin Campus, sorted
+#' customers that are within 100 km of the Intercom Dublin Campus, sorted
 #' by \code{user_id}
 #' @export
 #' @importFrom magrittr "%>%"
@@ -16,12 +16,12 @@
 
 get_customers_within_distance <- function(customers_path,
                                           cutoff_distance,
-                                          indeed_locations_path,
-                                          indeed_location_name){
+                                          intercom_locations_path,
+                                          intercom_location_name){
 
   customers <- import_customer_list(customers_path)
   campus_location <-
-    get_campus_location(indeed_location_name, indeed_locations_path)
+    get_campus_location(intercom_location_name, intercom_locations_path)
   customers$long_2 = campus_location$longitude
   customers$lat_2 = campus_location$latitude
 

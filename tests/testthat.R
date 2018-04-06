@@ -1,4 +1,4 @@
 library(testthat)
-library(indeed)
+library(intercom)
 
-test_check("indeed")
+test_check("intercom")

@@ -5,18 +5,18 @@
 \title{Get Sorted List of Customers Within Distance to Campus Location}
 \usage{
 get_customers_within_distance(customers_path, cutoff_distance,
-  indeed_locations_path)
+  intercom_locations_path)
 }
 \arguments{
 \item{customers_path}{Path to customer list in JSON format.}
 
 \item{cutoff_distance}{Max distance in km to customers.}
 
-\item{indeed_locations_path}{Path to list of Indeed locations in .csv format}
+\item{intercom_locations_path}{Path to list of Intercom locations in .csv format}
 }
 \value{
 A data frame with \code{name} and \code{user_id} of those
-customers that are within 100 km of the Indeed Dublin Campus, sorted
+customers that are within 100 km of the Intercom Dublin Campus, sorted
 by \code{user_id}
 }
 \description{
