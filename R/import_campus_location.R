@@ -4,7 +4,6 @@
 #' @param campus_file_path Path to file containing all campuses and locations, must be .csv.
 #'
 #' @return A data frame with one row and values \code{latitude} and \code{longitude}.
-#' @export
 #'
 #' @examples
 #' get_campus_location("Indeed Dublin HQ", "./path_to_campus_file.csv")

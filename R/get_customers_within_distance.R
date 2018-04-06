@@ -14,12 +14,14 @@
 #' get_customers_within_distance("./path_to_customers.json", cutoff_distance,
 #'                               "./path_to_campus_locations.csv")
 
-get_customers_within_distance <- function(customers_path, cutoff_distance,
-                                          indeed_locations_path){
+get_customers_within_distance <- function(customers_path,
+                                          cutoff_distance,
+                                          indeed_locations_path,
+                                          indeed_location_name){
 
   customers <- import_customer_list(customers_path)
   campus_location <-
-    get_campus_location("Indeed Dublin HQ", indeed_locations_path)
+    get_campus_location(indeed_location_name, indeed_locations_path)
   customers$long_2 = campus_location$longitude
   customers$lat_2 = campus_location$latitude
 
