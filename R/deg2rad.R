@@ -1,4 +1,4 @@
-#' Degrees To Radians
+#' Convert Degrees To Radians
 #'
 #' @param deg numeric degrees (0-360)
 #'

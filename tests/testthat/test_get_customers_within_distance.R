@@ -1,20 +1,13 @@
+# TODO Fix bug in reading data in this test.
+
 context("Customers")
+requireNamespace("mockery", quietly = TRUE)
 
-test_that("customer distance returnedis in correct_format",{
-  skip("not ready")
-  mockery::stub(get_customers_within_distance, # Where
-                "readLines", # What
-                readRDS("./mocked_data/customers_json_lines.rds"),
-                depth = 2) # How
-
-  mockery::stub(get_customers_within_distance,
-                "read.csv",
-                readRDS("./mocked_data/indeed_locations.rds"),
-                depth = 2)
-
-  actual <- get_customers_within_distance("./customer_data/customers.txt")
-
-  testthat::expect_is(actual, "data.frame")
-  testthat::expect_true("customer_distance" %in% names(actual))
+test_that("customer distance returned is in correct_format",{
+  skip("Bug in test code")
+  actual <- get_customers_within_distance("./other_test_data/customers.txt", 100,
+                                           "./other_test_data/indeed_locations.csv")
+  expect_is(actual, "data.frame")
+  expect_true("distance_to_hq" %in% names(actual))
 
 })

@@ -8,13 +8,22 @@
 
 import_customer_list <- function(customers_path){
 
-  customers_path %>%
-    readLines() %>%
+  tryCatch({customers <- readLines(customers_path)},
+           error = function(e){
+             stop("Cannot read customers file.")
+           }
+  )
+
+  customers <-
+    customers %>%
     paste(collapse = ',') %>% # correct to proper json format
     sprintf("[%s]", .) %>%
-    rjson::fromJSON() %>%
-    purrr::map_df(data.frame, stringsAsFactors = FALSE) %>%
+    jsonlite::fromJSON() %>%
     dplyr::mutate(latitude = as.numeric(latitude),
-                  longitude = as.numeric(longitude))
+                  longitude = as.numeric(longitude),
+                  user_id = as.numeric(user_id)) %>%
+    na.omit()
+
+  customers
 }
 
